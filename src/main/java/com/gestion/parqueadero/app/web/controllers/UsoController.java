@@ -62,7 +62,7 @@ public class UsoController {
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		List<Uso> list = service.findAll();
-		model.addAttribute("tittle", "Listado de usos");
+		model.addAttribute("title", "Listado de usos");
 		model.addAttribute("list", list);
 		return "uso/list";
 	}

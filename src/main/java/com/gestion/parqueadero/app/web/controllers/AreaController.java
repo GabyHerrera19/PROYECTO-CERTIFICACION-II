@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gestion.parqueadero.app.web.models.entities.Area;
+import com.gestion.parqueadero.app.web.models.entities.Vehiculo;
 import com.gestion.parqueadero.app.web.models.services.IAreaService;
 
 
@@ -55,14 +56,14 @@ public class AreaController {
 	public String update(@PathVariable(value="id") Integer id, Model model) {
 		Area area = service.findById(id);
 		model.addAttribute("area", area);
-		model.addAttribute("title", "Actualizar el área: " + area.getNombrearea());
+		model.addAttribute("title", "Actualizar el área: "+ area.getNombre());
 		return "area/form";
 	}
 	
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		List<Area> list = service.findAll();
-		model.addAttribute("tittle", "Listado de tipos de areas");
+		model.addAttribute("title", "Listado de tipos de áreas");
 		model.addAttribute("list", list);
 		return "area/list";
 	}

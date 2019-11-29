@@ -5,7 +5,7 @@ import java.util.List;
 import com.gestion.parqueadero.app.web.models.entities.Vehiculo;
 
 public interface IVehiculoService {
-	public void save (Vehiculo casoEmergencia);
+	public void save (Vehiculo vehiculo);
 	
 	public Vehiculo findById(Integer id);
 	

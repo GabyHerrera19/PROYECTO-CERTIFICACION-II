@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gestion.parqueadero.app.web.models.entities.Estacionamiento;
+import com.gestion.parqueadero.app.web.models.entities.Vehiculo;
 import com.gestion.parqueadero.app.web.models.services.IEstacionamientoService;
 
 
@@ -22,11 +23,13 @@ public class EstacionamientoController {
 	@Autowired //Para crear inyeccion de dependencias entre el controlador y el servicio
 	private  IEstacionamientoService service;
 	
+	
+
 	@GetMapping(value="/create") 
 	public String create(Model model) {
 		Estacionamiento estacionamiento = new Estacionamiento();
 		model.addAttribute("estacionamiento", estacionamiento); //El model reemplaza al ViewBag
-		model.addAttribute("title", "Registro de estacionamiento");
+		model.addAttribute("title", "Registro de nuevo estacionamiento");
 		return "estacionamiento/form";
 	}
 	
@@ -61,20 +64,22 @@ public class EstacionamientoController {
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		List<Estacionamiento> list = service.findAll();
-		model.addAttribute("tittle", "Listado de estacionamientos");
+		model.addAttribute("title", "Listado de estacionamientos");
 		model.addAttribute("list", list);
 		return "estacionamiento/list";
 	}
 	
-	@PostMapping(value="/save")
+
+	@PostMapping(value="save")
 	public String save(Estacionamiento estacionamiento, Model model, RedirectAttributes flash) {
 		try {
 			service.save(estacionamiento); //El service ya sabe si es nuevo o un antiguo y lo actualiza
-			flash.addFlashAttribute("message", "Registro guardado con éxito");
+			flash.addFlashAttribute("success", "Registro guardado con éxito");
 		}catch(Exception ex) {
 			flash.addFlashAttribute("error", "No se pudo guardar");
 		}
 		return "redirect:/estacionamiento/list";
 	}
+
 
 }

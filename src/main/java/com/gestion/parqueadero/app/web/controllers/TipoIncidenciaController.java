@@ -54,14 +54,14 @@ public class TipoIncidenciaController {
 	public String update(@PathVariable(value="id") Integer id, Model model) {
 		TipoIncidencia tipoincidencia = service.findById(id);
 		model.addAttribute("tipoincidencia", tipoincidencia);
-		model.addAttribute("title", "Actualizar el tipo de incidencia: " + tipoincidencia.getTipo());
+		model.addAttribute("title", "Actualizar el tipo de incidencia: " +tipoincidencia.getTipo());
 		return "tipoincidencia/form";
 	}
 	
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		List<TipoIncidencia> list = service.findAll();
-		model.addAttribute("tittle", "Listado de tipos de incidencias");
+		model.addAttribute("title", "Listado de tipos de incidencias");
 		model.addAttribute("list", list);
 		return "tipoincidencia/list";
 	}

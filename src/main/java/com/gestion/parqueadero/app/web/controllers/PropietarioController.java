@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gestion.parqueadero.app.web.models.entities.Propietario;
+import com.gestion.parqueadero.app.web.models.entities.Vehiculo;
 import com.gestion.parqueadero.app.web.models.services.IPropietarioService;
 
 
@@ -34,10 +35,12 @@ public class PropietarioController {
 	@GetMapping(value="/retrive/{id}")
 	public String retrive(@PathVariable(value="id") Integer id, Model model) {
 		Propietario propietario = service.findById(id);
-		model.addAttribute("paciente", propietario);
+		model.addAttribute("propietario", propietario);
 		model.addAttribute("title", "Detalle de propietario");
 		return "propietario/card";
 	}
+	
+	
 	
 	@GetMapping(value="/delete/{id}")
 	public String delete(@PathVariable(value="id") Integer id, Model model, RedirectAttributes flash) {
@@ -62,7 +65,7 @@ public class PropietarioController {
 	@GetMapping(value="/list")
 	public String list(Model model) {
 		List<Propietario> list = service.findAll();
-		model.addAttribute("tittle", "Listado de propietarios");
+		model.addAttribute("title", "Listado de propietarios");
 		model.addAttribute("list", list);
 		return "propietario/list";
 	}

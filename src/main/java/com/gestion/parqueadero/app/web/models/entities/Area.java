@@ -26,9 +26,9 @@ public class Area implements Serializable {
 	@Column(name="IDAREA")
 	private Integer idarea;
 	
-	@Column(name="NOMBRE_AREA")
+	@Column(name="NOMBREAREA")
 	@Size(max=10)
-	private String nombrearea;
+	private String nombre;
 	
 	@Column(name="CODIGO")
 	@Size(max=10)
@@ -54,12 +54,12 @@ public class Area implements Serializable {
 		this.idarea = idarea;
 	}
 
-	public String getNombrearea() {
-		return nombrearea;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombrearea(String nombrearea) {
-		this.nombrearea = nombrearea;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getCodigo() {

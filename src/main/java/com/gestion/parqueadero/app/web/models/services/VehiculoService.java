@@ -18,7 +18,12 @@ public class VehiculoService implements IVehiculoService{
 	@Override
 	@Transactional //solo
 	public void save(Vehiculo vehiculo) {
-		dao.save(vehiculo);
+		try {
+			dao.save(vehiculo);
+		}
+		catch(Exception ex) {
+			throw ex;
+		}
 		
 	}
 

@@ -26,7 +26,7 @@ public class Estacionamiento implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name="IDESTACIONAMIENTO")
-	private Integer idestac;
+	private Integer idestacionamiento;
 	
 	@Column(name="NUMERO")
 	@Size(max=10)
@@ -34,7 +34,7 @@ public class Estacionamiento implements Serializable{
 	
 	@Column(name="ESTADO")
 	@Size(max=10)
-	private Boolean estado;
+	private String estado;
 	
 	@JoinColumn(name= "IDVEHICULO", referencedColumnName = "IDVEHICULO")
 	@ManyToOne
@@ -50,15 +50,17 @@ public class Estacionamiento implements Serializable{
 	
 	public Estacionamiento(Integer id) {
 		super();
-		this.idestac = id;
+		this.idestacionamiento = id;
 	}
 
-	public Integer getIdestac() {
-		return idestac;
+	
+
+	public Integer getIdestacionamiento() {
+		return idestacionamiento;
 	}
 
-	public void setIdestac(Integer idestac) {
-		this.idestac = idestac;
+	public void setIdestacionamiento(Integer idestacionamiento) {
+		this.idestacionamiento = idestacionamiento;
 	}
 
 	public String getNumero() {
@@ -69,14 +71,16 @@ public class Estacionamiento implements Serializable{
 		this.numero = numero;
 	}
 
-	public Boolean getEstado() {
+	
+	
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
 	public Vehiculo getVehiculo() {
 		return vehiculo;
 	}

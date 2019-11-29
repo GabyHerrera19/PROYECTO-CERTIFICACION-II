@@ -19,14 +19,31 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav mr-auto">				
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/paciente/list}">Propietario</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/tipoenfermedad/list}">Estacionamiento</a></li>
+						th:href="@{/propietario/list}">Propietario</a></li>	
 				</ul>
+				
+				<ul class="navbar-nav mr-auto">				
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/vehiculo/list}">Vehículo</a></li>	
+				</ul>
+				<ul class="navbar-nav mr-auto">				
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/estacionamiento/list}">Estacionamiento</a></li>	
+				</ul>
+				<ul class="navbar-nav mr-auto">				
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/area/list}">&Aacute;rea</a></li>	
+				</ul>
+				<ul class="navbar-nav mr-auto">				
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/tipoincidencia/list}">Tipo de Incidencia</a></li>	
+				</ul>
+				
 			</div>
-		</nav>		
+	</nav>
+			
 		<div id="success-alert" class="alert alert-success" role="alert"
 			th:if="${success != null}">
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
