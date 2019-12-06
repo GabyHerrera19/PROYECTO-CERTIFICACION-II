@@ -49,7 +49,7 @@
 			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			<span th:text=${success}></span>
 		</div>
-		<div id="error-alert" class="alert alert-error" role="alert" th:if="${error != null}"
+		<div id="error-alert" class="alert alert-danger" role="alert" th:if="${error != null}"
 			th:text=${error}></div>
 		<div id="warning-alert" class="alert alert-warning" role="alert"
 			th:if="${warning != null}" th:text=${warning}></div>
